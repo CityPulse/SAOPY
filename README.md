@@ -12,11 +12,15 @@ library, you have to use the following command in the directory that you have do
 the SAOPY python wheels.
 
 $ pip install ./saopy-1.1.4-py2.py3-none-any.whl
+
 then start python using
+
 $ python
+
 Now let's open the python interpreter and give it a go...
-[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.56)] on
-darwin
+
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.56)] on darwin
+
 Type "help", "copyright", "credits" or "license" for more
 information.
 
