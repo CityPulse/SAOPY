@@ -81,23 +81,38 @@ Now that we know how to describe a simple observation, let's start annotating mo
 sensory observation. First create provenance information for sensory data:
 
 >>> cityofaarhus = saopy.foaf.Organization("http://example.org/cityofaarhus")
+
 >>> cityofaarhus = saopy.prov.Agent("http://example.org/cityofaarhus")
+
 >>> trafficsensor158324 = saopy.ssn.Sensor("http://example.org/data158324")
+
 >>> trafficsensor158324.actedOnBehalfOf = cityofaarhus
+
 
 creating properties of sensory data:
 
 >>> measuredTime = saopy.ssn.Property("http://unis/ics/property003")
+
 >>> measuredTime.description = "Measured Time"
+
 >>> estimatedTime = saopy.ssn.Property("http://unis/ics/property004")
+
 >>> estimatedTime.description = "Estimated Time"
+
 >>> avgSpeed = saopy.ssn.Property("http://unis/ics/property001")
+
 >>> avgSpeed.description = "Average Speed"
+
 >>> vcCount = saopy.ssn.Property("http://unis/ics/property002")
+
 >>> vcCount.description = "Vehicle Count"
+
 >>> trafficsensor158324.observes.add(vcCount)
+
 >>> trafficsensor158324.observes.add(avgSpeed)
+
 >>> trafficsensor158324.observes.add(estimatedTime)
+
 >>> trafficsensor158324.observes.add(measuredTime)
 
 SAOPY allows to describe time instants and intervals. Time instants should only be used
@@ -106,11 +121,17 @@ should specify both the beginning time of the interval and duration. Here we pro
 the examples.
 
 >>> universaltimeline = saopy.tl.PhysicalTimeLine("http://purl.org/NET/c4dm/timeline.owl#universaltimeline")
+
 >>> instant = saopy.tl.Instant("http://unis/ics/timeinstant")
+
 >>> interval = saopy.tl.Interval("http://unis/ics/timeinterval")
+
 >>> instant.at = "2014-09-30T06:00:00"
+
 >>> instant.onTimeLine = universaltimeline
+
 >>> interval.beginsAtDateTime = "2014-09-30T06:00:00"
+
 >>> interval.durationXSD = "PT5M"
 
 SAO ontology subsumes the measurement unit descriptions from Measurement Unit
@@ -118,39 +139,64 @@ Ontology (muo). Therefore, it enables to describe measurement unit of an observa
 follows:
 
 >>> unitseconds = saopy.muo.UnitOfMeasurement("http://unis/ics/unit1:seconds")
+
 >>> unitkilometer = saopy.muo.UnitOfMeasurement("http://unis/ics/unit2:km-per-hour")
 
 Now, we can annotate sensor observations for two sensor features, namely average speed and
 measure time:
 
 >>> trafficData001 = saopy.sao.StreamData("http://unis/ics/trafficdataavgspeed001")
+
 >>> trafficData001.value = "60"
+
 >>> trafficData001.hasUnitOfMeasurement=unitkilometer
+
 >>> trafficData001.observedProperty = avgSpeed
+
 >>> trafficData001.observedBy = trafficsensor158324
+
 >>> trafficData001.time = instant
+
 >>> trafficData003 = saopy.sao.StreamData("http://unis/ics/trafficdataMeasuredTime001")
+
 >>> trafficData003.value = "30"
+
 >>> trafficData003.hasUnitOfMeasurement=unitseconds
+
 >>> trafficData003.observedProperty = measuredTime
+
 >>> trafficData003.observedBy = trafficsensor158324
+
 >>> trafficData003.time = interval
 
 exporting sensor data in N3 format:
 
 >>> saoOut.add(trafficData001)
+
 >>> saoOut.add(trafficData003)
+
 >>> saoOut.add(cityofaarhus)
+
 >>> saoOut.add(trafficsensor158324)
+
 >>> saoOut.add(estimatedTime)
+
 >>> saoOut.add(measuredTime)
+
 >>> saoOut.add(avgSpeed)
+
 >>> saoOut.add(vcCount)
+
 >>> saoOut.add(unitkilometer)
+
 >>> saoOut.add(unitseconds)
+
 >>> saoOut.add(universaltimeline)
+
 >>> saoOut.add(instant)
+
 >>> saoOut.add(interval)
+
 >>> saopy.RDFInterface.exportRDFFile(saoOut, "example2.rdf","n3")
 
 saopy also allows to annotate quality values, such as correctness, frequency, age and
