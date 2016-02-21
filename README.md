@@ -72,8 +72,10 @@ following example shows how to create and export a sensor observation object wit
 >>> saoOut = saopy.SaoInfo()
 >>> saoOut.add(trafficData124)
 >>> saopy.RDFInterface.exportRDFFile(saoOut,”example1.rdf”,"n3")
+
 Now that we know how to describe a simple observation, let's start annotating more detailed
 sensory observation. First create provenance information for sensory data:
+
 >>> cityofaarhus = saopy.foaf.Organization("http://example.org/cityofaarhus")
 >>> cityofaarhus = saopy.prov.Agent("http://example.org/cityofaarhus")
 >>> trafficsensor158324 = saopy.ssn.Sensor("http://example.org/data158324")
