@@ -5,6 +5,7 @@ saopy.html)
 saopy depends on:
 
 1. rdflib (http://rdflib.org/) v2.4.0 (easy_install)
+
 saopy can be downloded from the following link: SAOPY (v1.1.4). Since it is an ongoing
 work, please make sure that you are using the latest version. In order to install SAOPY
 library, you have to use the following command in the directory that you have downloaded
