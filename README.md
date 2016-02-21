@@ -38,6 +38,7 @@ To view all "saopy" classes:
 
 To view all classes of sao ontology from saopy library:
 >>> dir(saopy.sao)
+
 ['DiscreteCosineTransform', 'DiscreteFourierTransform',
 'Mean', 'Median', 'PiecewiseAggregateApproximation', 'Point',
 'Segment', 'StreamAnalysis', 'StreamData', 'StreamEvent',
@@ -49,14 +50,21 @@ Creating a sensor object:
 Why shall we use saopy for annotation of IoT data? Saopy enables a user to avoid various
 common problems including use of undefined properties and classes, poorly formed
 namespaces, problematic prefixes, literal syntax and other optional heuristics.
+
 >>> sensor124 = saopy.ssn.Senzor("http://example.org/x")
+
 Traceback (most recent call last):
 File "", line 1, in
 AttributeError: 'module' object has no attribute 'Senzor'
+
 >>> cityofaarhus = saopy.foaf.Organisation("http://example.org/cityofaarhus")
+
 Traceback (most recent call last):
+
 File "", line 1, in
+
 AttributeError: 'module' object has no attribute
+
 'Organisation'
 
 To mash up multiple sensory objects for serialisation, you can use the ``SaoInfo" class. The
