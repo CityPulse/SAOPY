@@ -60,15 +60,13 @@ AttributeError: 'module' object has no attribute 'Senzor'
 >>> cityofaarhus = saopy.foaf.Organisation("http://example.org/cityofaarhus")
 
 Traceback (most recent call last):
-
 File "", line 1, in
-
 AttributeError: 'module' object has no attribute
-
 'Organisation'
 
 To mash up multiple sensory objects for serialisation, you can use the ``SaoInfo" class. The
 following example shows how to create and export a sensor observation object with a value:
+
 >>> trafficData124 = saopy.sao.StreamData("http://example.org/data1")
 >>> trafficData124.value = "1234"
 >>> saoOut = saopy.SaoInfo()
@@ -82,6 +80,7 @@ sensory observation. First create provenance information for sensory data:
 >>> trafficsensor158324.actedOnBehalfOf = cityofaarhus
 
 creating properties of sensory data:
+
 >>> measuredTime = saopy.ssn.Property("http://unis/ics/property003")
 >>> measuredTime.description = "Measured Time"
 >>> estimatedTime = saopy.ssn.Property("http://unis/ics/property004")
