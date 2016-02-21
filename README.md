@@ -98,6 +98,7 @@ SAOPY allows to describe time instants and intervals. Time instants should only 
 with tl:at to describe the time instance that data has been collected, whereas time interval
 should specify both the beginning time of the interval and duration. Here we provide both of
 the examples.
+
 >>> universaltimeline = saopy.tl.PhysicalTimeLine("http://purl.org/NET/c4dm/timeline.owl#universaltimeline")
 >>> instant = saopy.tl.Instant("http://unis/ics/timeinstant")
 >>> interval = saopy.tl.Interval("http://unis/ics/timeinterval")
@@ -109,10 +110,13 @@ the examples.
 SAO ontology subsumes the measurement unit descriptions from Measurement Unit
 Ontology (muo). Therefore, it enables to describe measurement unit of an observation as
 follows:
+
 >>> unitseconds = saopy.muo.UnitOfMeasurement("http://unis/ics/unit1:seconds")
 >>> unitkilometer = saopy.muo.UnitOfMeasurement("http://unis/ics/unit2:km-per-hour")
+
 Now, we can annotate sensor observations for two sensor features, namely average speed and
 measure time:
+
 >>> trafficData001 = saopy.sao.StreamData("http://unis/ics/trafficdataavgspeed001")
 >>> trafficData001.value = "60"
 >>> trafficData001.hasUnitOfMeasurement=unitkilometer
@@ -127,6 +131,7 @@ measure time:
 >>> trafficData003.time = interval
 
 exporting sensor data in N3 format:
+
 >>> saoOut.add(trafficData001)
 >>> saoOut.add(trafficData003)
 >>> saoOut.add(cityofaarhus)
