@@ -18,7 +18,7 @@ $ python
 
 Now let's open the python interpreter and give it a go...
 
-[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.56)] on darwin. Type "help", "copyright", "credits" or "license" for more information.
+>>> [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.56)] on darwin. Type "help", "copyright", "credits" or "license" for more information.
 
 Start by importing the saopy package :
 
@@ -28,7 +28,7 @@ To view all "saopy" classes:
 
 >>> dir(saopy)
 
-['DUL', 'PropertySet', 'RDFInterface', 'SaoInfo',
+>>> ['DUL', 'PropertySet', 'RDFInterface', 'SaoInfo',
 '__builtins__', '__doc__', '__file__', '__name__',
 '__package__', '__path__', 'ces', 'ct', 'exportRDFFile',
 'exportRDFGraph', 'foaf', 'geo', 'importRDFFile',
@@ -39,7 +39,7 @@ To view all "saopy" classes:
 To view all classes of sao ontology from saopy library:
 >>> dir(saopy.sao)
 
-['DiscreteCosineTransform', 'DiscreteFourierTransform',
+>>> ['DiscreteCosineTransform', 'DiscreteFourierTransform',
 'Mean', 'Median', 'PiecewiseAggregateApproximation', 'Point',
 'Segment', 'StreamAnalysis', 'StreamData', 'StreamEvent',
 'SymbolicAggregateApproximation', '__builtins__', '__doc__',
@@ -55,11 +55,11 @@ namespaces, problematic prefixes, literal syntax and other optional heuristics.
 
 >>> sensor124 = saopy.ssn.Senzor("http://example.org/x")
 
-Traceback (most recent call last): File "", line 1, in AttributeError: 'module' object has no attribute 'Senzor'
+>>> Traceback (most recent call last): File "", line 1, in AttributeError: 'module' object has no attribute 'Senzor'
 
 >>> cityofaarhus = saopy.foaf.Organisation("http://example.org/cityofaarhus")
 
-Traceback (most recent call last): File "", line 1, in AttributeError: 'module' object has no attribute 'Organisation'
+>>> Traceback (most recent call last): File "", line 1, in AttributeError: 'module' object has no attribute 'Organisation'
 
 To mash up multiple sensory objects for serialisation, you can use the ``SaoInfo" class. The
 following example shows how to create and export a sensor observation object with a value:
