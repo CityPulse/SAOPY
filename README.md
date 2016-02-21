@@ -68,9 +68,13 @@ To mash up multiple sensory objects for serialisation, you can use the ``SaoInfo
 following example shows how to create and export a sensor observation object with a value:
 
 >>> trafficData124 = saopy.sao.StreamData("http://example.org/data1")
+
 >>> trafficData124.value = "1234"
+
 >>> saoOut = saopy.SaoInfo()
+
 >>> saoOut.add(trafficData124)
+
 >>> saopy.RDFInterface.exportRDFFile(saoOut,”example1.rdf”,"n3")
 
 Now that we know how to describe a simple observation, let's start annotating more detailed
