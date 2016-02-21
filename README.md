@@ -206,25 +206,47 @@ by examining the difference between two successful submitted traffic streams to 
 correctness quality value.
 
 >>> segmentSample1 = saopy.sao.Segment("segment-sample-1")
+
 >>> age = saopy.qoi.Age("age-sample-1")
+
 >>> age.hasAge = "10"
+
 >>> completeness = saopy.qoi.Completeness("completenesssample-1")
+
 >>> completeness.hasCompleteness = "1"
+
 >>> correctness = saopy.qoi.Correctness("correctnesssample-1")
+
 >>> correctness.hasCorrectness = "1"
+
 >>> frequency = saopy.qoi.Frequency("frequency-sample-1")
+
 >>> frequency.hasFrequency = "10"
+
 >>> segmentSample1.hasQuality.add(frequency)
+
 >>> segmentSample1.hasQuality.add(correctness)
+
 >>> segmentSample1.hasQuality.add(completeness)
+
 >>> segmentSample1.hasQuality.add(age)
+
 >>> owner = saopy.prov.Person("MisterX")
+
 >>> segmentSample1.hasProvenance = owner
+
 >>> saoOut = saopy.SaoInfo()
+
 >>> saoOut.add(segmentSample1)
+
 >>> saoOut.add(age)
+
 >>> saoOut.add(completeness)
+
 >>> saoOut.add(correctness)
+
 >>> saoOut.add(frequency)
+
 >>> saoOut.add(owner)
+
 >>> saopy.RDFInterface.exportRDFFile(saoOut, "example3.rdf","n3")
